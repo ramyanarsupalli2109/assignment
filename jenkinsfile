@@ -1,17 +1,11 @@
 node {
 
     
-    stage('SCM Checkout') { // for display purposes
+    stage('SCM Checkout') { 
         // Get some code from a GitHub repository
-       git credentialsId: 'githubcredential', url: 'https://github.com/ramyanarsupalli2109/assignment.git'
+       git credentialsId: 'githubcredential', url: 'https://github.com/ramyanarsupalli2109/coding-challenge-release-engineer.git'
     }  
-    stage('Maven Compile') { 
-       
-       def mvnHome = tool name: 'M3', type: 'maven'
-	   def mvnCMD = "${mvnHome}/bin/mvn"
-	   sh "${mvnCMD} package"
-	  
-	} 
+ 
     stage('Mvn Package') { 
         
        def mvnHome = tool name: 'M3', type: 'maven'
@@ -19,9 +13,31 @@ node {
 	   sh "${mvnCMD} clean package"
 	}   
 
+
     stage('Build Docker Image') {
-       sh 'docker build -f /var/lib/jenkins/workspace/test1/src/main/docker/Dockerfile .'
+        
+       //sh 'sudo dockerd -H tcp://0.0.0.0:2735 -H unix:///var/run/docker.sock'    
+       //sh 'sudo docker build -f /var/lib/jenkins/workspace/test1/src/main/docker/Dockerfile .'
+       echo "building image"
+	}  
+
+    stage('Push Docker Image') { 
+        //withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+        //sh "docker login -u ramya.narsupalli -p ${dockerHubPwd}"
+     //}
+     //sh 'docker push ramya/ebayk'
+     echo "pushing docker image to registry"
+   }
+
+    stage('Run Container') { 
+       //def dockerRun = 'docker run -p 8080:8080 -d --name ebayk ramya.ebayk'
+      // sshagent(['dev-server']) {
+       //  sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.18.198 ${dockerRun}"
+         echo "deploying image to container orchestration platform"
+     //}
+      
 	}   
-	
+ 
+
 }
 
