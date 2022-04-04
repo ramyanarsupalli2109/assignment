@@ -1,0 +1,27 @@
+node {
+
+    
+    stage('SCM Checkout') { // for display purposes
+        // Get some code from a GitHub repository
+       git credentialsId: 'githubcredential', url: 'https://github.com/ramyanarsupalli2109/assignment.git'
+    }  
+    stage('Maven Compile') { 
+       
+       def mvnHome = tool name: 'M3', type: 'maven'
+	   def mvnCMD = "${mvnHome}/bin/mvn"
+	   sh "${mvnCMD} package"
+	  
+	} 
+    stage('Mvn Package') { 
+        
+       def mvnHome = tool name: 'M3', type: 'maven'
+	   def mvnCMD = "${mvnHome}/bin/mvn"
+	   sh "${mvnCMD} clean package"
+	}   
+
+    stage('Build Docker Image') {
+       sh 'docker build -f /var/lib/jenkins/workspace/test1/src/main/docker/Dockerfile .'
+	}   
+	
+}
+
