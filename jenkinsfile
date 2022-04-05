@@ -17,7 +17,7 @@ node {
     stage('Build Docker Image') {
         
        //sh 'sudo dockerd -H tcp://0.0.0.0:2735 -H unix:///var/run/docker.sock'    
-       sh 'docker build -f /var/lib/jenkins/workspace/ebaykApp/src/main/docker/Dockerfile .'
+       //sh 'docker build -f /var/lib/jenkins/workspace/ebaykApp/src/main/docker/Dockerfile .'
        echo "building image"
 	}  
 
@@ -38,6 +38,8 @@ node {
       
 	}   
  
-
+    stage ('API testing'){
+           sh "curl http://localhost:8080/users/2/rated-users"
+	}
 }
 
