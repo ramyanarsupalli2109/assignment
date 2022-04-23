@@ -11,10 +11,10 @@ class UserControllerTest {
 
 	  @Test
 	    void listAd(Integer userID) {
-		        UserController userController = new UserController();
-			    ListAd listAdResponse = userController.listAd(userID);
+             UserController userController = new UserController();
+	     ListAd listAdResponse = userController.listAd(userID);
 			        
-			        assertNotNull(listAdResponse.getID());
-				    assertDoesNotThrow(() -> new URL(listAdResponse.getImageUrl()));
+	     assertNotNull(listAdResponse.getID());
+	     assertDoesNotThrow(() -> new URL(listAdResponse.getImageUrl()));
 				      }
 }
