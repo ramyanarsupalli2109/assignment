@@ -33,14 +33,23 @@ node {
      echo "pushing docker image to registry"
    }
 
-    stage('Run Container') { 
+    stage('Deploy to staging') { 
        //def dockerRun = 'docker run -p 8080:8080 -d --name ebayk ramya.ebayk'
-      // sshagent(['dev-server']) {
-       //  sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.18.198 ${dockerRun}"
+      // sshagent(['staging-server']) {
+       //  sh "ssh -o StrictHostKeyChecking=no user@xxx.xx.xx.xxx ${dockerRun}"
          echo "deploying image to container orchestration platform"
      //}
       
 	}   
+    stage ('Sanity Check'){
+           input " Is staging OK"
+	}
+	
+   stage ('Deploy to production'){
+        
+        echo "Deploy to production"
+	
+	}	
  
     stage ('API testing'){
            sh "curl http://localhost:8080/users/2/rated-users"
