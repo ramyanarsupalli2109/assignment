@@ -1,7 +1,8 @@
 package com.ebayk;
 import java.util.Arrays;
 import java.util.Collections;
-
+import com.ebayk.data.user.UserRating;
+import com.ebayk.data.user.UserRepository;
 import com.ebayk.data.user.User;
 import com.ebayk.service.RatingAnalyzer;
 import com.ebayk.service.RatingAnalyzer.UserNotFoundException;
