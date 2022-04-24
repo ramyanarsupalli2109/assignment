@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import com.ebayk.data.user.User;
+import com.ebayk.data.user.UserRating;
 import java.net.URL;
 import org.junit.jupiter.api.Test;
 
