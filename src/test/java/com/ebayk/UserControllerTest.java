@@ -13,6 +13,6 @@ class UserControllerTest {
              UserController userController = new UserController();
 	     User singleuser = userController.singleAd();
 	     assertNotNull(singleuser.getName());
-	    // assertDoesNotThrow(() -> new UserRating(singleuser.getRatings()));
+	     assertDoesNotThrow(() -> new UserRating(singleuser.getRatings()));
 	    }		    
 }
