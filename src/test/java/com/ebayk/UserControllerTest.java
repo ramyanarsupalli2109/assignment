@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 class UserControllerTest {
 
 	  @Test
-	    void listAd(Integer userID) {
+	    List<id> listAd(Integer userID) {
              UserController userController = new UserController();
 	     User listAdResponse = userController.listAd(userID);
 	     assertNotNull(listAdResponse.getId());
