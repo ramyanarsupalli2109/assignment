@@ -33,7 +33,7 @@ public class UserController {
  @RequestMapping("/rated-user")
   public User singleAd() {
     // This is just placeholder sample data
-    return  User.newUser().id(4000).name("Cleo").ratings(Collections.emptyList()).build());
+    return  User.newUser().id(4000).name("Cleo").ratings(Collections.emptyList()).build();
   }
  
 }
