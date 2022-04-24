@@ -12,7 +12,7 @@ class UserControllerTest {
 
 	  @Test
 	     void listAd(Integer userID) {
-             UserController userController = new UserController();
+             UserController userController = new UserController(3);
 	     User listAdResponse = userController.listAd();
 	     assertNotNull(listAdResponse.getId());
 	    // assertDoesNotThrow(() -> new UserRating(listAdResponse.getRatings()));
