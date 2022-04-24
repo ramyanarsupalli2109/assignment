@@ -29,6 +29,11 @@ public class UserController {
             new UserRating(3, 5)
           )
       ).build());
-  
   }
+ @RequestMapping("/rated-user")
+  public User singleAd() {
+    // This is just placeholder sample data
+    return  User.newUser().id(4000).name("Cleo").ratings(Collections.emptyList()).build());
+  }
+ 
 }
