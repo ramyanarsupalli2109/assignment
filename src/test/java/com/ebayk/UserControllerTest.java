@@ -13,8 +13,7 @@ class UserControllerTest {
 	    void listAd(Integer userID) {
              UserController userController = new UserController();
 	     ListAd listAdResponse = userController.listAd(userID);
-			        
 	     assertNotNull(listAdResponse.getID());
-	     assertDoesNotThrow(() -> new URL(listAdResponse.getImageUrl()));
-				      }
+	     assertDoesNotThrow(() -> new UserRating(listAdResponse.getRatings()));
+	    }		    
 }
