@@ -14,7 +14,7 @@ class UserControllerTest {
 	     void listAd() {
              UserController userController = new UserController();
 	     User singleuser = userController.singleAd();
-	     assertNotNull(listAdResponse.getId());
+	     assertNotNull(singleuser.getId(3));
 	     assertDoesNotThrow(() -> new UserRating(singleuser.getRatings()));
 	    }		    
 }
